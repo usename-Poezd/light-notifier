@@ -9,3 +9,5 @@ build:
 	go mod download && CGO_ENABLED=0 GOOS=linux go build -o ./.bin/app ./cmd/app/main.go
 run:
 	go run ./cmd/app/main.go
+migrate:
+	goose -dir ./db/migrations sqlite3 ./db/light.db up
