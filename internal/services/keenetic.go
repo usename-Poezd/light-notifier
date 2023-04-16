@@ -29,13 +29,12 @@ func (s *KeeneticService) Check() error {
 
 	res, err := client.Do(req)
 
-	log.Printf("[Checked] Status code: %d; Domain: %s", res.StatusCode, s.KeenDnsDomain)
-
-
 	if err != nil {
 		log.Print(err.Error())
 		return err
 	}
+
+        log.Printf("[Checked] Status code: %d; Domain: %s", res.StatusCode, s.KeenDnsDomain)
 
 	if res.StatusCode != http.StatusOK {
 		log.Printf("Error status code: %d", res.StatusCode)
