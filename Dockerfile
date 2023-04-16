@@ -1,5 +1,7 @@
 FROM golang:1.19-alpine3.16
 WORKDIR /src
+RUN set -ex && \
+    apk add --no-cache gcc musl-dev
 COPY go.mod ./
 COPY go.sum ./
 RUN go mod download
